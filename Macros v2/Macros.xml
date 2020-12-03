@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<!DOCTYPE macros SYSTEM "http://www.4d.com/dtd/2007/macros.dtd" >
+
+<!--
+Description
+This file is created in the 4D folder at the first launch of the database.
+It automatically creates several macro commands that can be enriched or modified.
+You can also add all the macros required for your own development needs manually.
+
+version = 2 allows to use macro created at component level into host database
+
+List of default macro commands.
+
+Logical blocks
+_________________________________________________________________________________
+ForEach "ForEach" logical block
+
+Frequently-used database blocks
+_________________________________________________________________________________
+"QueryLoopRecordNoSave" Query and loop on a table selection without saving records (use a table name as selection)
+
+Useful blocks
+_________________________________________________________________________________
+"HeaderFooter"	Header and footer  for method
+"HeaderOnly"	Header for method
+"LastChanged" Adds 4D user name and date for development in multi-user environment
+"DateTime" Adds current date and time
+"UserDateTime" Adds comment line stamp user and current date and time
+"UserDate" Adds comment line stamp user and current date and time
+-->
+
+<macros>
+
+<macro name="Open structAnalyse dialog" version="2">
+<text><method>sisStartMain</method></text>
+</macro>
+
+<!-- Logical blocks -->
+<macro name="ForEach" version="2">
+<text>
+For each(<caret/>item;Expression;begin;end) Until (BooleanExpression)
+<selection/>
+End for each
+</text>
+</macro>
+
+
+<!-- Frequent database blocks -->
+<macro name="QueryLoopRecordNoSave" version="2">
+<text>
+QUERY(<selection/>;<selection/>Name="a@";*)
+QUERY(<selection/>; | ;<selection/>Name="b@")
+While (Not(End selection(<selection/>)))
+<caret/>
+Next Record(<selection/>)
+End while
+</text>
+</macro>
+
+
+<!-- Useful blocks -->
+<!-- Replace "LV" by your own shortName or by <user_os/> or <user_4D/> -->
+<macro name="HeaderFooter" version="2">
+<text><caret/>// PM: "<method_name/>" (new LV <date format="0"/>, <time format="0"/>)
+// $0 - C_TEXT - Result "Firstname LASTNAME"
+// $1 - C_TEXT - Firstname
+// $2 - C_TEXT - Lastname
+// Description
+// Last change: LV <date format="0"/>, <time format="0"/>
+
+C_TEXT($result;$0)
+C_TEXT($firstname;$1)
+C_TEXT($lastname;$2)
+
+If (Count parameters>0)
+	$firstname:=$1
+	If (Count parameters>1)
+		$lastname:=$2
+	End if
+End if
+
+
+
+$0:=$result
+
+// - EOF -
+</text>
+</macro>
+
+<macro name="HeaderOnly" version="2">
+<text>// PM: "<method_name/>" (new LV <date format="0"/>, <time format="0"/>)
+// $0 - C_TEXT - Result "Firstname LASTNAME"
+// $1 - C_TEXT - Firstname
+// $2 - C_TEXT - Lastname
+// Description
+// Last change: LV <date format="0"/>, <time format="0"/>
+<caret/>
+</text>
+</macro>
+
+<macro name="LastChanged" version="2">
+<text>// Last change: LV <date format="0"/>, <time format="0"/></text>
+</macro>
+
+<macro name="DateTime" version="2">
+<text><date format="0"/>, <time format="0"/></text>
+</macro>
+
+<macro name="UserDateTime" version="2">
+<text>// LV <date format="0"/>, <time format="0"/></text>
+</macro>
+
+<macro name="UserDate" version="2">
+<text>// LV <date format="0"/></text>
+</macro>
+
+</macros>
