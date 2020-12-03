@@ -4,8 +4,11 @@
 Case of 
 	: (Form event code:C388=On Clicked:K2:4)
 		// function commandEditor(myEditorName, myCommand, myP1, myP2)
-		// WA EXECUTE JAVASCRIPT FUNCTION(*;"oWebArea";"commandEditor";*;"mergeleft";"findPersistent")
-		WA EXECUTE JAVASCRIPT FUNCTION:C1043(*;"oWebArea";"commandEditor";*;"mergeleft";"find")
+		If (Macintosh option down:C545 | Windows Alt down:C563 | Shift down:C543)
+			WA EXECUTE JAVASCRIPT FUNCTION:C1043(*; "oWebArea"; "commandEditor"; *; "mergeleft"; "findPersistent")
+		Else 
+			WA EXECUTE JAVASCRIPT FUNCTION:C1043(*; "oWebArea"; "commandEditor"; *; "mergeleft"; "find")
+		End if 
 		
 End case 
 
