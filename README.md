@@ -5,7 +5,6 @@
 
 ## [Component method `sisStartMain`](https://github.com/lveith/structAnalyse/blob/main/Documentation/Methods/sisStartMain.md)
 Starts the tool `SIS | Search-In-Structure` in own process with own dialog.<br>
-*Generally a UI-Tool what cannot be thread-safe, but uses any thread-safe worker-processes to load/search datas.*
 
 <img width="419" alt="Bildschirmfoto 2020-12-03 um 14 15 31" src="https://user-images.githubusercontent.com/65073460/101027314-29e2a900-3578-11eb-84c2-92723276dcae.png">
 <img width="1127" alt="Bildschirmfoto 2020-12-03 um 14 32 30" src="https://user-images.githubusercontent.com/65073460/101027383-3c5ce280-3578-11eb-9f5d-8753a67bfea0.png">
