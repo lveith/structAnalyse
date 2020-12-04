@@ -14,4 +14,4 @@ Starts the tool `SIS | Search-In-Structure` in own process with own dialog.<br>
 4D, HTML, HTML-Mixed, XML, JSON, JavaScript ...and 100 languages modes available
 and too 100 of style-themes for syntax-coloring.
 Be free to define your own language-mode or a style-theme.
-Exlore more over thousand of available features or create your own functions to expand your code-mirror.
+Explore more over thousand of available cm-features or create your own functions to expand your code-mirror.
