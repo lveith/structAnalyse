@@ -15,3 +15,5 @@ Starts the tool `SIS | Search-In-Structure` in own process with own dialog.<br>
 and too 100 of style-themes for syntax-coloring.
 Be free to define your own language-mode or a style-theme.
 Explore more over thousand of available cm-features or create your own functions to expand your code-mirror.
+
+[Just some notes to 4D with CodeMirror](https://github.com/lveith/testStructAnalyzer/tree/master/onlySomeNotesTo4DWithCodeMirror)
