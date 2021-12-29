@@ -1,10 +1,10 @@
 //%attributes = {}
-  // PM: "y4DCmdAndConst" (new LV 19.05.20, 11:33:22)
+  // PM: "y4DCmdAndConst" (new LV 19.05.2020)
   // $0 - C_COLLECTION - ResultCol
   // $1 - C_BOOLEAN - withCmdList
   // $2 - C_BOOLEAN - withConstList
   // Returns a collection of 4D commands and constants
-  // Last change: LV 19.05.20, 11:33:22
+  // Last change: LV 20.12.2021
 
 C_COLLECTION:C1488($resultCol;$0)
 C_BOOLEAN:C305($withCmdList;$1)  // optional
@@ -242,7 +242,7 @@ If ($withConstList)
 			$constantNum:=$constantNum+1
 			$constantToken:=":K"+String:C10($constantThemeNum)+":"+String:C10($constantNum)
 			$constantName:=Parse formula:C1576($constantToken)
-			If ((Length:C16($constantName)>0) & ($constantName#("‘k"+String:C10($constantThemeNum)+";"+String:C10($constantNum)+"‘")))
+			If ((Length:C16($constantName)>0) & ($constantName#("‘k"+String:C10($constantThemeNum)+";"+String:C10($constantNum)+"‘")) & ($constantName#(":K"+String:C10($constantThemeNum)+" : "+String:C10($constantNum))))
 				$contents:=$constantName+":K"+String:C10($constantThemeNum)+":"+String:C10($constantNum)
 				Case of 
 					: ($constantThemeNum=1)
