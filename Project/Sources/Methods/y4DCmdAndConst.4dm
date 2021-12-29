@@ -226,6 +226,25 @@ If ($withCmdList)
 						  // $attributes.cmdDesc:=$cmdTxt
 						$resultCol.push(New object:C1471("column1";$resultCol.length+1;"column2";$commandName;"column3";$id;"column4";"command";"column5";$theme;"column6";$contents;"column7";String:C10(Num:C11(Bool:C1537($threadsafe ?? 0));"True;False;False");"column8";"";"column9";""))
 					End if 
+					
+				Else 
+					// If ($threadsafe ?? 0)  //if the first bit is set to 1
+					// $info1:="threadsafe=True"
+					// Else 
+					// $info1:="threadsafe=False"
+					// End if 
+					$id:="C"+String:C10($commandNum)
+					$commandName:=Parse formula:C1576(":"+$id)
+					$contents:=$commandName+":C"+String:C10($commandNum)
+					If (($commandName#"") & ($commandName#"_4D"))
+						// $attributes:=New object("threadsafe";$threadsafe)
+						// $txtAttr:=JSON Stringify($attributes;*)
+						// $attributes.threadsafe:=$threadsafe
+						// $attributes.cmdSyntax:=$lastCmdTxt
+						// $attributes.cmdDesc:=$cmdTxt
+						$resultCol.push(New object:C1471("column1"; $resultCol.length+1; "column2"; $commandName; "column3"; $id; "column4"; "command"; "column5"; "Used only 4D intern (disabled)"; "column6"; $contents; "column7"; "?"; "column8"; ""; "column9"; "Command is disabled (only 4D intern usage)"))
+					End if 
+					
 				End if 
 			End if 
 		End if 
@@ -240,7 +259,7 @@ If ($withConstList)
 		$constantThemeNum:=$constantThemeNum+1
 		Repeat 
 			$constantNum:=$constantNum+1
-			$constantToken:=":K"+String:C10($constantThemeNum)+":"+String:C10($constantNum)
+			$constantToken:="xy:K"+String:C10($constantThemeNum)+":"+String:C10($constantNum)
 			$constantName:=Parse formula:C1576($constantToken)
 			If ((Length:C16($constantName)>0) & ($constantName#("‘k"+String:C10($constantThemeNum)+";"+String:C10($constantNum)+"‘")) & ($constantName#(":K"+String:C10($constantThemeNum)+" : "+String:C10($constantNum))))
 				$contents:=$constantName+":K"+String:C10($constantThemeNum)+":"+String:C10($constantNum)
